@@ -1,0 +1,132 @@
+@import 'settings';
+@import 'mixins';
+
+#header{
+  margin: 0 0 60px 0;
+  position: relative;
+
+  .inner-header{
+    background-color: $color-background;
+    width: 100%;
+
+    .container{
+      padding-top: 40px;
+      padding-bottom: 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+
+      .logo{
+        text-align: center;
+
+        h1{
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      .header-slogan{
+        margin: 17px 0 0 0;
+        text-align: center;
+        line-height: 1;
+
+        &-text{
+          color: $color-main;
+          margin: 0;
+          font-size: 14px;
+          font-weight: bold;
+          line-height: 1.5;
+          font-style: italic;
+          display: inline-block;
+          position: relative;
+          font-family: $font-secondary;
+          padding: 0 15px;
+          letter-spacing: 1px;
+          vertical-align: top;
+
+          &:before{
+            content: "";
+            position: absolute;
+            top: 50%;
+            height: 1px;
+            display: block;
+            width: 60px;
+            background: $color-main-negative;
+            left: auto;
+            right: 100%;
+          }
+
+          &:after{
+            content: "";
+            position: absolute;
+            top: 50%;
+            height: 1px;
+            display: block;
+            width: 60px;
+            background: $color-main-negative;
+            left: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  #navigation{
+    background: $color-background;
+    height: 60px;
+    z-index: 9999;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    border-top: 1px solid $color-navigation-border;
+    border-bottom: 1px solid $color-navigation-border;
+
+    .menu{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+
+      li{
+        margin-right: 44px;
+
+        a{
+          font-size: 12px;
+          letter-spacing: 1px;
+          color: $color-main;
+          line-height: 4.8;
+          text-transform: uppercase;
+          display: inline-block;
+          @include transition(.3s);
+          position: relative;
+          font-weight: 700;
+          text-decoration: none;
+
+          &:hover{
+            color: $color-secondary;
+
+            &:before{
+              left: 0;
+              width: 100%;
+            }
+          }
+
+          &:before{
+            content: "";
+            position: absolute;
+            bottom: 18px;
+            @include transition(all 0.2s);
+            left: 50%;
+            height: 2px;
+            width: 0;
+            background: $color-secondary;
+          }
+
+          i{
+            font-size: 13px;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}

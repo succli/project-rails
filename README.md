@@ -6,7 +6,7 @@ Project for my Ruby on Rails  course
 - [ ] Validation by models
 - [ ] App language should be Hungarian
 - [ ] Translate all error messages to Hungarian
-- [ ] Use at least one gem which is not a default gem
-- [ ] Use scss and javascript/coffescript
+- [x] Use at least one gem which is not a default gem
+- [x] Use scss and javascript/coffescript
 - [ ] Make `rake db:populate` with sample database data
 - [ ] Write tests for your functions
