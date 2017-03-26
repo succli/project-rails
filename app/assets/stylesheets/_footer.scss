@@ -1,0 +1,68 @@
+@import "settings";
+@import "mixins";
+
+#footer-section{
+  padding: 0;
+  background: $color-main;
+  text-align: center;
+  color: $color-footer-negative;
+  position: relative;
+
+  .footer{
+
+    &-logo-copyright{
+      padding: 40px 0 73px;
+      text-align: center;
+    }
+
+    &-logo{
+      margin: 0 0 32px 0;
+    }
+
+    &-copyright{
+
+      p{
+        font-family: $font-secondary;
+        font-size: 14px;
+        color: $color-footer-negative;
+        line-height: 1.4;
+        font-style: italic;
+      }
+    }
+  }
+
+  .go-to-top-parent{
+    width: 100%;
+    height: auto;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 17px;
+    text-align: center;
+    z-index: 10;
+
+    .go-to-top{
+
+      span{
+        color: $color-footer-negative;
+        font-size: 12px;
+        font-weight: 700;
+        font-family: $font-main;
+        text-transform: uppercase;
+        line-height: 1;
+        display: inline-block;
+        @include transition(all 0.3s);
+
+        i{
+          font-size: 18px;
+          z-index: 5;
+          position: relative;
+          @include transition(all 0.3s);
+          color: $color-footer-negative;
+          line-height: 1;
+          margin-bottom: 3px;
+        }
+      }
+    }
+  }
+}
