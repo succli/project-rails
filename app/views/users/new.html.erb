@@ -1,18 +1,46 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <%= form_for(@user) do |f| %>
+  <div class="row justify-content-center">
+    <div class="col col-sm-6">
+      <%= form_for(@user, url: regisztracio_path) do |f| %>
+        <%= render 'shared/error_messages' %>
         <div class="form-group">
-          <%= f.text_field :username, class: "form-control", placeholder: "Felhasználónév" %>
+          <%= f.label :username, 'Felhasználónév:' %>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-user"></i>
+            </div>
+            <%= f.text_field :username, class: "form-control", placeholder: "Adja meg felhasználónevét" %>
+          </div>
         </div>
         <div class="form-group">
-          <%= f.email_field :email, class: "form-control", placeholder: "Email cím" %>
+          <%= f.label :email, 'E-mail cím:' %>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <%= f.email_field :email, class: "form-control", placeholder: "Adja meg email címét" %>
+          </div>
         </div>
         <div class="form-group">
-          <%= f.password_field :password, class: "form-control", placeholder: "Jelszó" %>
+          <%= f.label :password, 'Jelszó:' %>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-key"></i>
+            </div>
+            <%= f.password_field :password, class: "form-control", placeholder: "Adja meg jelszavát" %>
+          </div>
         </div>
         <div class="form-group">
-          <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Jelszó ismét" %>
+          <%= f.label :password_confirmation, 'Jelszó ismét:' %>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-key"></i>
+            </div>
+            <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Adja meg jelszavát ismét" %>
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <%= f.submit "Regisztráció", class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>
