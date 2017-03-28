@@ -9,4 +9,4 @@ Project for my Ruby on Rails  course
 - [x] Use at least one gem which is not a default gem
 - [x] Use scss and javascript/coffescript
 - [ ] Make `rake db:populate` with sample database data
-- [ ] Write tests for your functions
+- [x] Write tests for your functions
