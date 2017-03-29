@@ -4,11 +4,10 @@
       <div class="row">
         <div class="col">
           <div class="logo">
-            <h1>
-              <a href="">
-                <img src="" alt="Logo">
+              <a href="<%= request.base_url %>">
+                <%= image_tag 'logo.svg' %>
+                <h1 class="sr-only">Chef</h1>
               </a>
-            </h1>
           </div>
           <div class="header-slogan">
             <h2 class="header-slogan-text">
@@ -22,20 +21,40 @@
   <div id="navigation-sticky-wrapper" class="sticky-wrapper">
     <nav id="navigation">
       <div class="container">
-        <ul class="menu clearfix">
-          <li class="menu-item">
-            <a href="#"><i class="fa fa-home"></i> Főoldal</a>
-          </li>
-          <li class="menu-item">
-            <a href="#">Receptek</a>
-          </li>
-          <li class="menu-item">
-            <a href="#">Blog</a>
-          </li>
-          <li class="menu-item">
-            <a href="#"><i class="fa fa-user"></i> Profilom</a>
-          </li>
-        </ul>
+        <div class="row">
+          <div class="col">
+            <ul class="menu clearfix">
+              <li class="menu-item">
+                <%= link_to ("<i class='fa fa-home'></i> Főoldal").html_safe, root_path %>
+              </li>
+              <li class="menu-item">
+                <a href="#">Receptek</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Blog</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col clearfix">
+            <ul class="menu sub-menu pull-right clearfix">
+              <% if logged_in? %>
+              <li class="menu-item">
+                <%= link_to ("<i class='fa fa-user'></i> Profilom").html_safe, current_user %>
+              </li>
+              <li class="menu-item">
+                <%= link_to ("<i class='fa fa-sign-out'></i> Kijelentkezés").html_safe, kijelentkezes_path, method: "delete" %>
+              </li>
+              <% else %>
+              <li class="menu-item">
+                <%= link_to ("<i class='fa fa-sign-in'></i> Bejelentkezés").html_safe, bejelentkezes_path %>
+              </li>
+              <li class="menu-item">
+                <%= link_to ("<i class='fa fa-key'></i> Regisztráció").html_safe, regisztracio_path %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
       </div>
     </nav>
   </div>

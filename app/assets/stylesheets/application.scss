@@ -39,7 +39,25 @@ main{
   margin-top: 45px;
 }
 
+a{
+
+  &:hover{
+    text-decoration: none;
+  }
+}
+
 form{
+
+  a{
+    color: $color-main;
+    font-size: 14px;
+    @include transition(color .3s ease);
+
+    &:hover{
+      color: $color-secondary;
+      text-decoration: none;
+    }
+  }
 
   .form-group{
     margin: 0 0 28px 0;

@@ -17,6 +17,11 @@
 
     &-logo{
       margin: 0 0 32px 0;
+
+      img{
+        width: auto;
+        height: 100px;
+      }
     }
 
     &-copyright{
