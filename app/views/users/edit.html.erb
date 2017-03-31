@@ -1,0 +1,84 @@
+<% provide(:title, "Adatlap szerkesztése") %>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col col-sm-6">
+      <%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages' %>
+
+        <div class="form-group">
+          <%= f.label :username, 'Felhasználónév:' %>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-user"></i>
+            </div>
+            <%= f.text_field :username, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :email, 'E-mail cím:' %>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <%= f.email_field :email, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :password, 'Jelszó:' %>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-key"></i>
+            </div>
+            <%= f.password_field :password, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation, 'Jelszó ismét:' %>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-key"></i>
+            </div>
+            <%= f.password_field :password_confirmation, class: "form-control" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-md-6">
+            <div class="form-group">
+              <%= f.label :lastname, 'Vezetéknév:' %>
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-address-card"></i>
+                </div>
+                <%= f.text_field :lastname, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="col col-md-6">
+            <div class="form-group">
+              <%= f.label :firstname, 'Keresztnév:' %>
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-address-card"></i>
+                </div>
+                <%= f.text_field :firstname, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :description, 'Bemutatkozás:' %>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-pencil"></i>
+            </div>
+            <%= f.text_area :description, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <%= f.submit "Frissítés", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

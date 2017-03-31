@@ -158,6 +158,11 @@ form{
       color: $color-main;
     }
 
+    textarea.form-control{
+      min-height: 160px;
+      resize: vertical;
+    }
+
     .btn{
 
       &.btn-primary{

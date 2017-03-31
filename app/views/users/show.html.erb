@@ -1,1 +1,42 @@
-<%= @user.username %>, <%= @user.email %>
+<% provide(:title, "Adatlap") %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <% if @user.description %>
+      <div class="row">
+        <div class="col">
+          <h2>Bemutatkozás</h2>
+          <p><%= @user.description %></p>
+        </div>
+      </div>
+      <% end %>
+      <div class="row">
+        <div class="col">
+          <h2>Receptjeim</h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <aside class="sidebar-box">
+        <div class="text-center">
+          <img src="" alt="User avatar">
+          <h3><%= @user.username %></h3>
+          <ul class="data">
+            <li>
+              <%= @user.lastname %> <%= @user.firstname %>
+            </li>
+            <li>
+              <%= mail_to @user.email %>
+            </li>
+            <% if logged_in? && current_user?(@user) %>
+              <li>
+                <%= link_to "Szerkesztés", edit_user_path(current_user) %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>

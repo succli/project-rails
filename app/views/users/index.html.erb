@@ -1,0 +1,13 @@
+<% provide(:title, 'Felhasználó lista') %>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= will_paginate %>
+        <div class="users">
+          <%= render @users %>
+        </div>
+      <%= will_paginate %>
+    </div>
+  </div>
+</div>
