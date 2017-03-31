@@ -25,6 +25,15 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <div class="checkbox">
+          <%= f.check_box :remember_me, class: "fancy-checkbox" %>
+          <%= f.label :remember_me, class: "fancy-checkbox-label" do %>
+            Emlékezz rám
+          <% end %>
+        </div>
+      </div>
+
       <div class="form-group text-center">
         <%= f.submit "Bejelentkezés", class: "btn btn-primary" %>
       </div>

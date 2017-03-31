@@ -68,6 +68,55 @@ form{
       font-weight: 700;
     }
 
+    .checkbox{
+
+      .fancy-checkbox:not(:checked),
+      .fancy-checkbox:checked{
+        position: absolute;
+        left: -9999px;
+
+        & + .fancy-checkbox-label {
+          position: relative;
+          padding-left: 30px;
+          cursor: pointer;
+          line-height: 22px;
+          font-weight: 400;
+
+          &:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border: 1px solid $color-main-negative;
+            background: $color-background;
+          }
+
+          &:after{
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+            background: $color-secondary;
+            @include transition(all .3s ease-in-out);
+          }
+        }
+      }
+
+      .fancy-checkbox:not(:checked) + .fancy-checkbox-label:after{
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      .fancy-checkbox:checked + .fancy-checkbox-label:after{
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
     .input-group{
 
       &-addon{
