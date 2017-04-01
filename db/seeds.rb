@@ -25,7 +25,7 @@ User.create!(username:  "succli",
               password_confirmation: password,
               firstname: Faker::Name.first_name,
               lastname: Faker::Name.last_name,
-              description: '',
+              description: Faker::Lorem.paragraph(3),
               admin: false,
               activated: true,
               activated_at: Time.zone.now)

@@ -41,6 +41,7 @@ gem 'rails-controller-testing'
 gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 gem 'bootstrap-will_paginate', '~> 0.0.11'
 gem 'faker', '~> 1.7', '>= 1.7.3'
+gem 'rails-i18n', '~> 5.0', '>= 5.0.3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
