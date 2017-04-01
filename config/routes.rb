@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'welcome#index'
 
@@ -10,5 +11,5 @@ Rails.application.routes.draw do
   post   '/bejelentkezes',   to: 'session#create'
   delete '/kijelentkezes',   to: 'session#destroy'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :account_activations, only: [:edit]
 end

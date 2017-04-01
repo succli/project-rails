@@ -7,6 +7,8 @@ bela:
   firstname: Bela
   lastname: Kovacs
   admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 archer:
   username: archer
@@ -14,6 +16,8 @@ archer:
   password_digest: <%= User.digest('password') %>
   firstname: Sterling
   lastname: Archer
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 lana:
   username: lanakane
@@ -21,19 +25,25 @@ lana:
   password_digest: <%= User.digest('password') %>
   firstname: Lana
   lastname: Kane
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 malory:
   username: malory
   email: boss@example.gov
   password_digest: <%= User.digest('password') %>
   firstname: Malory
-  lastname: Archer
+  lastname: Archer,
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 <% 30.times do |n| %>
 user_<%= n %>:
-  username:  <%= "user#{n}" %>
-  email: <%= "user-#{n}@example.com" %>
+  username:  <%= Faker::Internet.user_name %>
+  email: <%= Faker::Internet.email %>
   password_digest: <%= User.digest('password') %>
-  firstname: <%= "Foo" %>
-  lastname: <%= "Bar" %>
+  firstname: <%= Faker::Name.first_name %>
+  lastname: <%= Faker::Name.last_name %>,
+  activated: true
+  activated_at: <%= Time.zone.now %>
 <% end %>
