@@ -3,13 +3,19 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get  '/regisztracio',  to: 'users#new'
-  post '/regisztracio',  to: 'users#create'
-  resources :users
+  get     '/regisztracio',                 to: 'users#new'
+  post    '/regisztracio',                 to: 'users#create'
+  
+  scope(path_names: { edit: 'szerkesztes' }) do
+    resources :users, path: 'felhasznalok', except: [:new, :create]
+  end
 
   get    '/bejelentkezes',   to: 'session#new'
   post   '/bejelentkezes',   to: 'session#create'
   delete '/kijelentkezes',   to: 'session#destroy'
 
-  resources :account_activations, only: [:edit]
+  scope(path_names: { new: 'uj', edit: 'szerkesztes' }) do
+    resources :posts, path: 'blog'
+  end
+  
 end

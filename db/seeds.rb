@@ -13,9 +13,7 @@ User.create!(username:  "succli",
              firstname: 'Zsolt',
              lastname: 'Schutzbach',
              description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-             admin:     true,
-             activated: true,
-             activated_at: Time.zone.now)
+             admin:     true)
 
 55.times do |n|
   password = Faker::Internet.password(6, 20, true)
@@ -26,7 +24,5 @@ User.create!(username:  "succli",
               firstname: Faker::Name.first_name,
               lastname: Faker::Name.last_name,
               description: Faker::Lorem.paragraph(3),
-              admin: false,
-              activated: true,
-              activated_at: Time.zone.now)
+              admin: false)
 end

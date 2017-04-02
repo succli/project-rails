@@ -1,8 +1,7 @@
 class User < ApplicationRecord
+  has_many :posts, dependent: :destroy
   attr_accessor :remember_token
-  attr_accessor :remember_token, :activation_token
   before_save   :downcase_email
-  before_create :create_activation_digest
   validates :username, presence: true, length: {maximum: 50, minimum: 4}, uniqueness: {case_sensitive: false}
   validates :email, presence: true, length: {maximum: 255, minimum: 5}, format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}, uniqueness: {case_sensitive: false}
   has_secure_password
@@ -42,11 +41,5 @@ class User < ApplicationRecord
     # Converts email to all lower-case.
     def downcase_email
       self.email = email.downcase
-    end
-
-    # Creates and assigns the activation token and digest.
-    def create_activation_digest
-      self.activation_token  = User.new_token
-      self.activation_digest = User.digest(activation_token)
     end
 end
