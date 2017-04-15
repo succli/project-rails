@@ -17,10 +17,13 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
 @import "settings";
 
 @import "header";
 @import "footer";
+
+@import "typo";
 
 body{
   margin: 0;
@@ -161,6 +164,10 @@ form{
     textarea.form-control{
       min-height: 160px;
       resize: vertical;
+
+      &#froala{
+        min-height: 500px;
+      }
     }
 
     .btn{

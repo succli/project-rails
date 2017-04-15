@@ -2,3 +2,10 @@ hu:
   will_paginate:
     previous_label: "<i class='fa fa-angle-left'></i>"
     next_label: "<i class='fa fa-angle-right'></i>"
+  activerecord:
+    errors:
+      models:
+        post:
+          attributes:
+            user: 
+              required: "kötelező mező."

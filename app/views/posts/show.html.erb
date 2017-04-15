@@ -1,0 +1,28 @@
+<% provide(:title, @post.title) %>
+
+<section id="user-sheet">
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <div class="page-content">
+          <h2><%= @post.title %></h2>
+          <%= (@post.content).html_safe %>
+        </div>
+      </div>
+      <div class="col-4">
+        <aside class="widget">
+          <h4 class="widget-title">
+            <span class="inner-arrow">Szerző</span>
+          </h4>
+          <div class="about-widget">
+            <img src="" alt="Avatar">
+            <h2 class="about-me-heading"><%= @post.user.lastname %> <%= @post.user.firstname %></h2>
+            <% if @post.user.description %>
+              <p><%= @post.user.description %></p>
+            <% end %>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>

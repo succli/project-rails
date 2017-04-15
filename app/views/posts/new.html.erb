@@ -1,0 +1,38 @@
+<% provide(:title, "Új bejegytés") %>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <% if @post.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <p><%= pluralize(@post.errors.count, "hiba") %> merült fel a közzététel során:</p>
+
+        <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= form_for(@post, url: {action: :create}) do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <div class="form-group">
+          <%= f.label :title, 'Cím:' %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :content, 'Tartalom:' %>
+          <%= f.text_area :content, id: 'froala', class: 'form-control' %>
+        </div>
+
+        <div class="form-group text-center">
+          <%= f.submit "Küldés", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

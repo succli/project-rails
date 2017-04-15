@@ -26,3 +26,9 @@ User.create!(username:  "succli",
               description: Faker::Lorem.paragraph(3),
               admin: false)
 end
+
+20.times do |n|
+  Post.create!(title: Faker::Lorem.paragraph(1),
+             content: Faker::Lorem.paragraph(10),
+             user_id: 1)
+end

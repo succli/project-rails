@@ -1,0 +1,227 @@
+@import "settings";
+@import "mixins";
+
+.page-content{
+
+  h2{
+    font-size: 24px;
+    color: $color-main;
+    letter-spacing: 0;
+    clear: both;
+    line-height: 1.3em;
+    margin: 0 0 17px 0;
+    font-weight: 700;
+    padding: 0;
+    font-family: $font-main;
+
+    a{
+      color: $color-secondary;
+      @include transition(color .3s ease-in-out);
+
+      &:hover{
+        color: $color-main;
+      }
+    }
+  }
+
+  h3{
+    font-size: 22px;
+    color: $color-main;
+    letter-spacing: 0;
+    clear: both;
+    line-height: 1.3em;
+    margin: 0 0 17px 0;
+    font-weight: 700;
+    padding: 0;
+    font-family: $font-main;
+
+    a{
+      color: $color-secondary;
+      @include transition(color .3s ease-in-out);
+
+      &:hover{
+        color: $color-main;
+      }
+    }
+  }
+
+  h4{
+    font-size: 20px;
+    color: $color-main;
+    letter-spacing: 0;
+    clear: both;
+    line-height: 1.3em;
+    margin: 0 0 17px 0;
+    font-weight: 700;
+    padding: 0;
+    font-family: $font-main;
+
+    a{
+      color: $color-secondary;
+      @include transition(color .3s ease-in-out);
+
+      &:hover{
+        color: $color-main;
+      }
+    }
+  }
+
+  h5{
+    font-size: 18px;
+    color: $color-main;
+    letter-spacing: 0;
+    clear: both;
+    line-height: 1.3em;
+    margin: 0 0 17px 0;
+    font-weight: 700;
+    padding: 0;
+    font-family: $font-main;
+
+    a{
+      color: $color-secondary;
+      @include transition(color .3s ease-in-out);
+
+      &:hover{
+        color: $color-main;
+      }
+    }
+  }
+
+  h6{
+    font-size: 16px;
+    color: $color-main;
+    letter-spacing: 0;
+    clear: both;
+    line-height: 1.3em;
+    margin: 0 0 17px 0;
+    font-weight: 700;
+    padding: 0;
+    font-family: $font-main;
+
+    a{
+      color: $color-secondary;
+      @include transition(color .3s ease-in-out);
+
+      &:hover{
+        color: $color-main;
+      }
+    }
+  }
+
+  p, span, time, author, .info{
+    font-family: $font-main;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    margin: 0 0 17px 0;
+    padding: 0;
+    color: $color-main;
+
+    a{
+      color: $color-secondary;
+      @include transition(color .3s ease-in-out);
+
+      &:hover{
+        color: $color-main;
+      }
+    }
+  }
+
+  ul{
+    padding: 0 0 0 50px;
+    margin: 0 0 20px 0;
+    list-style: none;
+
+    li{
+      font-family: $font-main;
+      font-size: 14px;
+      line-height: 28px;
+      list-style: none;
+      margin-bottom: 7px;
+      position: relative;
+      list-style-type: square;
+      line-height: 1.7;
+      
+      a{
+        color: $color-secondary;
+        @include transition(color .3s ease-in-out);
+
+        &:hover{
+          color: $color-main;
+        }
+      }
+    }
+  }
+
+  ul{
+    padding: 0 0 0 50px;
+    margin: 0 0 20px 0;
+    list-style: none;
+
+    li{
+      font-family: $font-main;
+      font-size: 14px;
+      line-height: 28px;
+      list-style: none;
+      margin-bottom: 7px;
+      position: relative;
+      list-style-type: decimal;
+      line-height: 1.7;
+      
+      a{
+        color: $color-secondary;
+        @include transition(color .3s ease-in-out);
+
+        &:hover{
+          color: $color-main;
+        }
+      }
+    }
+  }
+
+  blockquote{
+    position: relative;
+    padding: 0 0 0 46px;
+    border: none !important;
+    overflow: hidden;
+    margin: 0;
+
+    &:before{
+      color: $color-secondary;
+      content: "“";
+      font-family: $font-secondary;
+      font-size: 64px;
+      font-weight: 900;
+      line-height: 1;
+      font-style: normal;
+      position: absolute;
+      top: -4px;
+      left: 0px;
+    }
+
+    p{
+      font-size: 16px;
+      color: $color-bloquote;
+      font-style: italic;
+      line-height: 1.7;
+      text-align: left;
+      margin: 0 0 20px 0;
+    }
+  }
+
+  hr{
+    border: 0;
+    height: 0;
+    border-bottom: 1px solid $color-main-negative;
+    clear: both;
+    margin: 0 0 17px 0;
+  }
+
+  img{
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 17px auto;
+  }
+}

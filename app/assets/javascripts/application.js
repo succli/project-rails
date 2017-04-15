@@ -15,4 +15,8 @@
 //= require tether
 //= require bootstrap
 //= require turbolinks
+//= require froala_editor.min.js
+//= require plugins/lists.min.js
+//= require plugins/quote.min.js
+//= require languages/hu.js
 //= require_tree .

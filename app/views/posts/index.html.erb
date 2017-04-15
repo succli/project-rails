@@ -1,0 +1,12 @@
+<% provide(:title, "Blog") %>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="posts">
+        <%= render @posts %>        
+      </div>
+      <%= will_paginate %>
+    </div>
+  </div>
+</div>

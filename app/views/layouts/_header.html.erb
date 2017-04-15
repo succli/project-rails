@@ -42,7 +42,20 @@
             <ul class="menu sub-menu pull-right clearfix">
               <% if logged_in? %>
               <li class="menu-item">
-                <%= link_to ("<i class='fa fa-user'></i> Profilom").html_safe, current_user %>
+                <a href="#"><i class='fa fa-user'></i> Profilom</a>
+                <ul class="sub-menu">
+                  <li class="menu-item">
+                    <%= link_to 'Profilom', current_user %>
+                  </li>
+                  <% if current_user.admin? %>
+                    <li class="menu-item">
+                      <%= link_to 'Új bejegyzés', new_post_path %>
+                    </li>
+                  <% end %>
+                  <li class="menu-item">
+                    <a href="#">Új recept</a>
+                  </li>
+                </ul>
               </li>
               <li class="menu-item">
                 <%= link_to ("<i class='fa fa-sign-out'></i> Kijelentkezés").html_safe, kijelentkezes_path, method: "delete" %>
