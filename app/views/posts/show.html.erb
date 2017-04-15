@@ -15,7 +15,7 @@
             <span class="inner-arrow">Szerző</span>
           </h4>
           <div class="about-widget">
-            <img src="" alt="Avatar">
+            <%= image_tag @post.user.avatar.thumb.url, class: 'img-circle' %>
             <h2 class="about-me-heading"><%= @post.user.lastname %> <%= @post.user.firstname %></h2>
             <% if @post.user.description %>
               <p><%= @post.user.description %></p>

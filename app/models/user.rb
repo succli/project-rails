@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :avatar, ImageUploader
   has_many :posts, dependent: :destroy
   attr_accessor :remember_token
   before_save   :downcase_email
@@ -6,6 +7,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {maximum: 255, minimum: 5}, format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}, uniqueness: {case_sensitive: false}
   has_secure_password
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
+  validates_processing_of :avatar
+  validate :image_size_validation
 
   # Returns the hash digest of the given string.
   def User.digest(string)
@@ -41,5 +44,9 @@ class User < ApplicationRecord
     # Converts email to all lower-case.
     def downcase_email
       self.email = email.downcase
+    end
+
+    def image_size_validation
+      errors[:avatar] << "nem lehett nagyobb, mint 500 KB" if avatar.size > 0.5.megabytes
     end
 end

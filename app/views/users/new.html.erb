@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col col-sm-6">
-      <%= form_for(@user, url: regisztracio_path) do |f| %>
+      <%= form_for(@user, url: regisztracio_path, html: { multipart: true }) do |f| %>
         <%= render 'shared/error_messages' %>
         <div class="form-group">
           <%= f.label :username, 'Felhasználónév:' %>
@@ -39,6 +39,12 @@
               <i class="fa fa-key"></i>
             </div>
             <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Adja meg jelszavát ismét" %>
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <div class="form-avatar">
+            <%= f.label :avatar, 'Avatar feltöltése' %>
+            <%= f.file_field :avatar, class: "form-upload" %>
           </div>
         </div>
         <div class="form-group text-center">

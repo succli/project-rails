@@ -20,7 +20,7 @@
             <span class="inner-arrow"><%= @user.username %> profilja</span>
           </h4>
           <div class="about-widget">
-            <img src="" alt="Avatar">
+            <%= image_tag @user.avatar.thumb.url, class: 'img-circle' %>
             <h2 class="about-me-heading"><%= @user.lastname %> <%= @user.firstname %></h2>
             <% if @user.description %>
               <p><%= @user.description %></p>

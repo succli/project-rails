@@ -9,3 +9,6 @@ hu:
           attributes:
             user: 
               required: "kötelező mező."
+  errors:
+    messages:
+      mini_magick_processing_error: "Mini Magick feldolgozási hiba."
