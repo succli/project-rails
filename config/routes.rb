@@ -17,5 +17,11 @@ Rails.application.routes.draw do
   scope(path_names: { new: 'uj', edit: 'szerkesztes' }) do
     resources :posts, path: 'blog'
   end
+
+  scope(path_names: { new: 'uj', edit: 'szerkesztes'}) do
+    resources :recipes, path: 'receptek'
+  end
+
+  get   '/kategoria/:id', to: 'recipe_categories#show', as: 'recipe_category'
   
 end

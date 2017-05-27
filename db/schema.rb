@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170415131450) do
+ActiveRecord::Schema.define(version: 20170527152728) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -20,6 +20,33 @@ ActiveRecord::Schema.define(version: 20170415131450) do
     t.datetime "updated_at", null: false
     t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "recipe_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recipe_categories_recipes", id: false, force: :cascade do |t|
+    t.integer "recipe_id"
+    t.integer "recipe_category_id"
+    t.index ["recipe_category_id"], name: "index_recipe_categories_recipes_on_recipe_category_id"
+    t.index ["recipe_id"], name: "index_recipe_categories_recipes_on_recipe_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "ingredients"
+    t.string   "serves"
+    t.string   "prep_time"
+    t.string   "cooking_time"
+    t.string   "featured_image"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

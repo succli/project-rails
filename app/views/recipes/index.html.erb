@@ -1,0 +1,14 @@
+<% provide(:title, "Receptek") %>
+
+<seciton id="recipes">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="recipes">
+          <%= render @recipes %>        
+        </div>
+        <%= will_paginate %>
+      </div>
+    </div>
+  </div>
+</seciton>

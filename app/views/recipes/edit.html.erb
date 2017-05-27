@@ -1,0 +1,65 @@
+<% provide(:title, "Recept szerkesztése") %>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <% if @recipe.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <p><%= pluralize(@recipe.errors.count, "hiba") %> merült fel a közzététel során:</p>
+
+        <ul>
+        <% @recipe.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= form_for(@recipe, url: {action: :update}) do |f| %>
+        <div class="form-group">
+          <%= f.label :title, 'Cím:' %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label 'recipe_category_id', 'Kategória:' %>
+          <%= collection_select :recipe, :recipe_category_ids, RecipeCategory.all, :id, :name, {:include_blank => false}, {:multiple => true, :name=>'recipe[recipe_category_ids][]',:selected => 0, class: 'form-control', id: 'recipe_category_id'} %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description, 'Leírás:' %>
+          <%= f.text_area :description, id: 'froala', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :ingredients, 'Hozzávalók:' %>
+          <%= f.text_area :ingredients, id: 'igredients', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :serves, 'Adag:' %>
+          <%= f.text_field :serves, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :prep_time, 'Előkészületi idő (perc):' %>
+          <%= f.text_field :prep_time, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :cooking_time, 'Elkészítési idő (perc):' %>
+          <%= f.text_field :cooking_time, class: 'form-control' %>
+        </div>
+        <div class="form-group text-center">
+          <% if f.object.featured_image? %>
+            <%= image_tag f.object.featured_image.thumb.url, class: 'img-fluid' %>
+          <% end %>
+          <div class="form-avatar">
+            <%= f.label :featured_image, 'Kép feltöltése' %>
+            <%= f.file_field :featured_image, class: "form-upload" %>
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <%= f.submit "Frissítés", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -12,3 +12,7 @@ hu:
   errors:
     messages:
       mini_magick_processing_error: "Mini Magick feldolgozási hiba."
+  date:
+    formats:
+      short: "%B %d"
+      default: "%B %d, %Y"

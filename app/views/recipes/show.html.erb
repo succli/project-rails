@@ -1,0 +1,110 @@
+<% provide(:title, @recipe.title) %>
+
+<section id="recipe">
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <div class="page-content">
+          <article id="recipe-<%= @recipe.id %>" class="recipe">
+            <div class="header-standard text-center">
+              <div class="category">
+                <span class="cat">
+                  <% for category_id in @recipe.recipe_category_ids %>
+                    <%= link_to RecipeCategory.find(category_id).name, recipe_category_path(category_id), class: 'cat-name' %>
+                  <% end %>
+                </span>
+              </div>
+              <h2 class="recipe-title"><%= @recipe.title %></h2>
+              <div class="recipe-meta">
+                <span class="author">feltöltő: <%= link_to (@recipe.user.lastname + ' ' + @recipe.user.firstname).html_safe, user_path(@recipe.user.id) %></span>
+                <span class="created_at"><%= l @recipe.created_at %></span>
+              </div>
+            </div>
+            <% if @recipe.featured_image.url %>
+              <%= image_tag @recipe.featured_image.url, class: 'img-fluid' %>
+            <% end %>
+            <div class="recipe-wrapper">
+              <div class="recipe-inner">
+                <div class="recipe-header">
+                  <h2><%= @recipe.title %></h2>
+                  <div class="recipe-meta">
+                    <span><i class="fa fa-user"></i> Adag: <%= @recipe.serves %></span>
+                    <span><i class="fa fa-clock-o"></i> Előkészítés: <%= @recipe.prep_time %> perc</span>
+                    <span><i class="fa fa-clock-o"></i> Elkészítés: <%= @recipe.cooking_time %> perc</span>
+                  </div>
+                </div>
+
+                <div class="recipe-ingredients">
+                  <h3 class="recipe-title">Hozzávalók</h3>
+                  <%= (@recipe.ingredients).html_safe %>
+                </div>
+
+                <div class="recipe-method">
+                  <h3 class="recipe-title">Elkészítés</h3>
+                  <%= (@recipe.description).html_safe %>
+                </div>
+              </div>
+            </div>
+            <% if(current_user.id == @recipe.user.id) %>
+              <div class="action-buttons">
+                <%= link_to ("<i class='fa fa-pencil'></i> Szerkesztés").html_safe, edit_recipe_path(@recipe.id), class: 'text-warning' %>
+                 <%= link_to ("<i class='fa fa-times'></i> Törlés").html_safe, @recipe, method: :delete, data: { confirm: "Biztos benne?" }, class: 'text-danger' %>
+              </div>
+            <% end %>
+          </article>
+        </div>
+      </div>
+      <div class="col-4">
+        <aside class="widget">
+          <h4 class="widget-title">
+            <span class="inner-arrow"><%= @recipe.user.username %></span>
+          </h4>
+          <div class="about-widget">
+            <% if @recipe.user.avatar.thumb.url %>
+              <%= image_tag @recipe.user.avatar.thumb.url, class: 'img-circle' %>
+            <% else %>
+              <%= image_tag 'avatar_default.png', class: 'img-circle' %>
+            <% end %>
+            <h2 class="about-me-heading"><%= @recipe.user.lastname %> <%= @recipe.user.firstname %></h2>
+            <% if @recipe.user.description %>
+              <p><%= @recipe.user.description %></p>
+            <% end %>
+          </div>
+        </aside>
+        <aside class="widget">
+          <h4 class="widget-title">
+            <span class="inner-arrow">Kategóriák</span>
+          </h4>
+        </aside>
+        <aside class="widget">
+          <h4 class="widget-title">
+            <span class="inner-arrow">Utolsó 5 recept</span>
+          </h4>
+          <ul class="last-recipes">
+            <% for @lastrecipe in @lastrecipes %>
+              <li>
+                <div class="side-item">
+                  <% if @lastrecipe.featured_image.url %>
+                    <div class="side-image">
+                      <% if recipe.featured_image_url %>
+                        <a href="<%= recipe_path(@lastrecipe.id) %>" style="background-image: url(<%= @lastrecipe.featured_image_url %>)"></a>
+                      <% else %>
+                        <a href="<%= recipe_path(@lastrecipe.id) %>"></a>
+                      <% end %>
+                    </div>
+                  <% end %>
+                  <div class="side-item-text">
+                    <h4>
+                      <%= link_to @lastrecipe.title, recipe_path(@lastrecipe.id) %>
+                    </h4>
+                    <div class="side-item-meta"><%= l @lastrecipe.created_at %></div>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>

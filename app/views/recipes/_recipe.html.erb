@@ -1,0 +1,23 @@
+<div class="col-12 col-md-4">
+  <article id="recipe-<%= recipe.id %>" class="recipe-card">
+    <div class="thumbnail">
+      <% if recipe.featured_image_url %>
+        <a href="<%= recipe_path(recipe.id) %>" style="background-image: url(<%= recipe.featured_image_url %>)"></a>
+      <% else %>
+        <a href="<%= recipe_path(recipe.id) %>"></a>
+      <% end %>
+    </div>
+
+    <div class="header-box">
+      <span class="cat">
+        <% for category_id in recipe.recipe_category_ids %>
+          <%= link_to RecipeCategory.find(category_id).name, recipe_category_path(category_id), class: 'cat-name' %>
+        <% end %>
+      </span>
+    </div>
+
+    <h2 class="title">
+      <%= link_to recipe.title, recipe_path(recipe.id) %>
+    </h2>
+  </article>
+</div>

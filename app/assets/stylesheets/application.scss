@@ -184,6 +184,12 @@ form{
       color: $color-main;
     }
 
+    select.form-control{
+      min-height: 100px;
+      font-size: 14px;
+      padding: 4px 20px;
+    }
+
     textarea.form-control{
       min-height: 160px;
       resize: vertical;
