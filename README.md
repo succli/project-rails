@@ -10,3 +10,10 @@ Project for my Ruby on Rails  course
 - [x] Use scss and javascript/coffescript
 - [ ] Make `rake db:populate` with sample database data
 - [x] Write tests for your functions
+
+## To do list
+- [ ] List user recipes on profile page
+- [ ] Add home page content
+- [ ] Deploy to heroku
+- [ ] Add some user avatar
+- [ ] Add some recipes

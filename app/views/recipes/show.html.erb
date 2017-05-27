@@ -75,6 +75,15 @@
           <h4 class="widget-title">
             <span class="inner-arrow">Kategóriák</span>
           </h4>
+          <ul class="category-menu">
+            <% for category in RecipeCategory.all %>
+              <% if category.recipe_ids.length > 0  %>
+                <li>
+                  <a href="<%= recipe_category_path(category.id) %>"><%= category.name %> <span>(<%= category.recipe_ids.length %>)</span></a>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
         </aside>
         <aside class="widget">
           <h4 class="widget-title">
@@ -86,7 +95,7 @@
                 <div class="side-item">
                   <% if @lastrecipe.featured_image.url %>
                     <div class="side-image">
-                      <% if recipe.featured_image_url %>
+                      <% if @lastrecipe.featured_image_url %>
                         <a href="<%= recipe_path(@lastrecipe.id) %>" style="background-image: url(<%= @lastrecipe.featured_image_url %>)"></a>
                       <% else %>
                         <a href="<%= recipe_path(@lastrecipe.id) %>"></a>

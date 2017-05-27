@@ -26,6 +26,48 @@
             <% end %>
           </div>
         </aside>
+        <aside class="widget">
+          <h4 class="widget-title">
+            <span class="inner-arrow">Kategóriák</span>
+          </h4>
+          <ul class="category-menu">
+            <% for category in RecipeCategory.all %>
+              <% if category.recipe_ids.length > 0  %>
+                <li>
+                  <a href="<%= recipe_category_path(category.id) %>"><%= category.name %> <span>(<%= category.recipe_ids.length %>)</span></a>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </aside>
+        <aside class="widget">
+          <h4 class="widget-title">
+            <span class="inner-arrow">Utolsó 5 recept</span>
+          </h4>
+          <ul class="last-recipes">
+            <% for @lastrecipe in Recipe.order('recipes.created_at DESC').limit(5) %>
+              <li>
+                <div class="side-item">
+                  <% if @lastrecipe.featured_image.url %>
+                    <div class="side-image">
+                      <% if @lastrecipe.featured_image_url %>
+                        <a href="<%= recipe_path(@lastrecipe.id) %>" style="background-image: url(<%= @lastrecipe.featured_image_url %>)"></a>
+                      <% else %>
+                        <a href="<%= recipe_path(@lastrecipe.id) %>"></a>
+                      <% end %>
+                    </div>
+                  <% end %>
+                  <div class="side-item-text">
+                    <h4>
+                      <%= link_to @lastrecipe.title, recipe_path(@lastrecipe.id) %>
+                    </h4>
+                    <div class="side-item-meta"><%= l @lastrecipe.created_at %></div>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </aside>
       </div>
     </div>
   </div>
