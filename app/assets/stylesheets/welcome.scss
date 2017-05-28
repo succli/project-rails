@@ -1,3 +1,57 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "settings";
+
+.featured_recipes{
+
+  .recipe-inner{
+    padding-top: 66.6667%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin: 0 0 20px 0;
+
+    &.recipe-inner-big{
+
+      a{
+
+        h2{
+          font-size: 24px;
+        }
+      }
+    }
+
+    a{
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background: rgba(0,0,0,0);
+      transition: background .3s ease;
+
+      &:hover{
+        background: rgba(0,0,0,0.15);
+      }
+
+      h2{
+        position: absolute;
+        left: 15px;
+        bottom: 15px;
+        font-family: $font-main;
+        font-weight: 700;
+        color: $color-background;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 4px #000000;
+      }
+    }
+  }
+}

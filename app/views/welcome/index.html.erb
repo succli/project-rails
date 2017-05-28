@@ -1,1 +1,35 @@
 <% provide(:title, "Főoldal") %>
+
+<section class="featured_recipes">
+  <div class="container">
+    <div class="row">
+      <% @recipes.each_with_index do |recipe, index| %>
+        <% if index == 0 %>
+          <div class="col-12 col-md-8">
+            <div class="recipe-inner recipe-inner-big" style="background-image: url(<%= recipe.featured_image_url %>)">
+              <a href="<%= recipe_path(recipe.id) %>">
+                <h2 class="title"><%= recipe.title %></h2>
+              </a>
+            </div>
+          </div>
+        <% else %>
+          <% if index == 1 %>
+            <div class="col-12 col-md-4">
+          <% end %>
+            <div class="row">
+              <div class="col">
+                <div class="recipe-inner" style="background-image: url(<%= recipe.featured_image_url %>)">
+                  <a href="<%= recipe_path(recipe.id) %>">
+                    <h2 class="title"><%= recipe.title %></h2>
+                  </a>
+                </div>
+              </div>
+            </div>
+          <% if index == 2 %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>
