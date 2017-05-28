@@ -12,7 +12,7 @@ Project for my Ruby on Rails  course
 - [x] Write tests for your functions
 
 ## To do list
-- [ ] List user recipes on profile page
+- [x] List user recipes on profile page
 - [ ] Add home page content
 - [ ] Deploy to heroku
 - [ ] Add some user avatar

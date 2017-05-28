@@ -1,14 +1,27 @@
 <article id="post-<%= post.id %>" class="post page-content">
-  <h3><%= link_to post.title, post_path(post.id) %></h3>
-  <div class="info">
-    <% @user = User.find(post.user_id) %>
-    <strong>Szerző:</strong> <author><%= link_to @user.username, user_path(@user)  %></author>
-    - <time><%= time_ago_in_words(post.created_at) %></time>
-    <% if(current_user.admin?) %>
-      - <%= link_to ("<i class='fa fa-pencil'></i>").html_safe, edit_post_path(post.id), class: 'text-warning' %>
-      <%= link_to ("<i class='fa fa-times'></i>").html_safe, post, method: :delete, data: { confirm: "Biztos benne?" }, class: 'text-danger' %>
-    <% end %>
+  <div class="row">
+    <div class="col-12 col-sm-3">
+      <div class="thumbnail">
+        <% if post.featured_image_url %>
+          <a href="<%= post_path(post.id) %>" style="background-image: url(<%= post.featured_image_url %>)"></a>
+        <% else %>
+          <a href="<%= post_path(post.id) %>"></a>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-12 col-sm-9">
+      <h3><%= link_to post.title, post_path(post.id) %></h3>
+      <div class="info">
+        <% @user = User.find(post.user_id) %>
+        <strong>Szerző:</strong> <author><%= link_to @user.username, user_path(@user)  %></author>
+        - <time><%= time_ago_in_words(post.created_at) %></time>
+        <% if(current_user.admin?) %>
+          - <%= link_to ("<i class='fa fa-pencil'></i>").html_safe, edit_post_path(post.id), class: 'text-warning' %>
+          <%= link_to ("<i class='fa fa-times'></i>").html_safe, post, method: :delete, data: { confirm: "Biztos benne?" }, class: 'text-danger' %>
+        <% end %>
+      </div>
+      <p><%= truncate(strip_tags(post.content), length: 400, omission: '...') %></p>
+    </div>
   </div>
-  <p><%= truncate(strip_tags(post.content), length: 400, omission: '...') %></p>
   <hr>
 </article>

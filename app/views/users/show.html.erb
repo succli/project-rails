@@ -4,7 +4,16 @@
   <div class="container">
     <div class="row">
       <div class="col-8">
-        
+        <% if @user.recipes %>
+          <header class="page-content text-center">
+            <hr>
+            <h2 class="text-uppercase">Utolsó 5 receptem</h2>
+            <hr>
+          </header>
+          <div class="row">
+            <%= render @user.recipes %>
+          </div>
+        <% end %>
         <% if @user.admin? %>
           <header class="page-content text-center">
             <hr>

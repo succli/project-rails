@@ -4,4 +4,36 @@
 
 @import "froala_editor.min.css";
 @import "froala_style.min.css";
+@import "settings";
 
+.post{
+
+  .thumbnail{
+
+    a{
+      position: relative;
+      background: $color-ul-pin url(image_path('no-image.jpg'));
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 100%;
+      display: inline-block;
+      vertical-align: top;
+      opacity: 1;
+      transition: opacity .3s ease;
+
+      &:hover{
+        opacity: 0.8;
+      }
+
+      &:before{
+        display: block;
+        content: '';
+        width: 100%;
+        padding-top: 66.6667%;
+        background: none;
+        box-shadow: none;
+      }
+    }
+  }
+}
